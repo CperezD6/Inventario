@@ -1,3 +1,7 @@
+ruta
+
+/mtn/c/Users/necperez/Desktop/clases/Cod Juan/loginMD
+
 //Entramos a la carpeta
 cd . \backend\
 
