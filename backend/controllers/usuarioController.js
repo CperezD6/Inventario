@@ -20,6 +20,22 @@ const registrar = async (req, res) => {
     }catch(error){
         console.log(error);
     }
+};
+
+const autenticar = async (req, res)=>{
+    const {email, password }= req.body;
+    
+    //Comprobar si el usuario existe
+    const usuario = await Usuario.findOne({email});
+    if(!usuario){
+        const error = new Error("El Usuario no existe");
+        return res.status(404).json({msg: error.message})
+    }
+    //Comprobar si el usuario esta confirmado
+
+    //Comprobar su password
+
 }
 
-export { registrar };
+
+export { registrar, autenticar };
