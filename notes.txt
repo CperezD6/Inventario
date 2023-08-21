@@ -1,0 +1,78 @@
+//Entramos a la carpeta
+cd . \backend\
+
+//Creamos el package.json
+npm init
+
+//instalamos express
+npm i express
+
+//Creamos el archivo index.js
+
+import express from "express";
+import conectarDB from "./config/db.js"
+
+const app = express();
+
+conectarDB(); 
+
+app.listen(400, ()=>{
+    console.log("servidor corriendo en el puerto 4000");
+})
+
+
+//modificamos el archivo package.json en el apartado de "scrips" cambiamos;
+"test", por ,"dev": "node index.js"
+
+// instalamos dependencia para el reinicio del servidor por modificaciones
+npm i -D nodemon
+// luego de instalar cambaimos en el package.json
+ "dev": "nodemon index.js",   -> comando para desarrollo
+ "start": "node index.js"     -> comando para produccion
+
+//Habilitar imports para import y export en package.json
+"type": "module",
+
+//ejecutar el comando para agregar dependencia para la base de datos
+npm i mongoose
+
+// crear carpeta config, y archivo db.js con el siguiente codigo
+
+import mongoose from "mongoose"
+
+const conectarDB = async () => {
+    try {
+        const connection = await mongoose.connect(
+            "mongodb+srv://root:root@cluster0.s6nn3u1.mongodb.net/uptask?retryWrites=true&w=majority",
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true
+            }
+        );
+        const url = `${connection.connection.host}: ${connection.connection.port} `;
+        console.log(`Mongo DB Conectado en: ${url}`)
+    }catch(error){
+        console.log(`error: ${error.message}`)
+        process.exit(1);
+    }
+};
+
+export default conectarDB
+
+// Ocultar ruta de la base de datos instalando dependencia con el siguiente comando
+npm i dotenv
+
+//Creamos archivo .env en la carpeta backend e insertamos siguiente codigo
+
+
+//Modificamos el archivo index.js copiamos la ruta hacia el .env
+process.env.MONGO_URI 
+
+//en el index.js creamos una variable de PORT para deployment
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, ()=>{
+    console.log(`servidor corriendo en el puerto  ${PORT}`);
+})
+
+//
