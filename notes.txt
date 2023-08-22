@@ -1,6 +1,6 @@
 ruta
 
-/mtn/c/Users/necperez/Desktop/clases/Cod Juan/loginMD
+/mtn/c/Users/necperez/Desktop/clases/Cod\ Juan/loginMD
 
 //Entramos a la carpeta
 cd . \backend\
@@ -81,4 +81,7 @@ app.listen(PORT, ()=>{
 
 //instalar dependencia para hashear contraseñas
 npm i bcrypt
+
+//instalar dependencia para crear un JWT o token
+npm i jsonwebtoken
 
