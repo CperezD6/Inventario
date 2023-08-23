@@ -10,7 +10,7 @@ const registrar = async (req, res) => {
     if(existeUsuario){
         const error = new Error("Usuario ya registrado")
         return res.status(400).json({ msg: error.message })
-    }
+    };
     
     try{
         const usuario = new Usuario(req.body);
@@ -52,4 +52,16 @@ const autenticar = async (req, res)=>{
 
 }
 
-export { registrar, autenticar };
+const confirmar = async (req, res) =>{
+    
+    const { token } = req.params;
+    const usuarioConfirmar = await Usuario.findOne( {token} );
+    if(!usuarioConfirmar){
+        const error = new Error("Token no valido");
+        return res.status(403).json({msg: error.message});
+    }
+    console.log(usuarioConfirmar);
+};
+
+
+export { registrar, autenticar, confirmar };
