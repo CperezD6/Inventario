@@ -1,4 +1,4 @@
-ruta
+//ruta
 
 mnt/c/Users/necperez/Desktop/clases/Cod\ Juan/loginMD
 
