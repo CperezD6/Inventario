@@ -128,5 +128,4 @@ const perfil = async(req, res)=>{
 }
 
 
-
 export { registrar, autenticar, confirmar, olvidePassword, comprobarToken, nuevoPassword, perfil };
