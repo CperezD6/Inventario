@@ -85,3 +85,33 @@ npm i bcrypt
 //instalar dependencia para crear un JWT o token
 npm i jsonwebtoken
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Creando el Fronend
+npm create vite@lastest
+// Instalando dependencias para el frontend
+npm i axios react-router-dom
+//instalando dependencia tailwind
+npm i -D tailwindcss postcss autoprefixer
+//inicializando tailwind 
+npx tailwindcss init -p
+//moificando archivo de configuracion de tailwindcss
+content: ["index.html", "./src/**/*.jsx"],
+//Configurando archivo index.css 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
