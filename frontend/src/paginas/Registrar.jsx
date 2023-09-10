@@ -1,22 +1,36 @@
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
+import Alerta from '../components/Alerta'
 
 const Registrar = () => {
   const [nombre, setNombre]= useState('')
   const [email, setEmail]= useState('')
   const [password, setPassword]= useState('')
   const [repetirPassword, setRepetirPassword]= useState('')
+  const [alerta, setAlerta] = useState('')
 
-  const handleSubmit(){
+  const handleSubmit = e =>{
+    e.preventDefault()
+    if([nombre, email, password, repetirPassword].includes("")){
+      setAlerta({
+        msg: 'Todos los campos son obligatorios',
+        error: true
+      })
+      return
+    }
 
-    
+
+
   }
 
+  const {msg} = alerta
 
   return (
     
       <>
       <h1 className='text-blue-500 font-black text-5xl capitalize'>Crea tu cuenta</h1>
+
+      {msg && <Alerta alerta={alerta}/>}
 
       <form action="" 
         className='my-10 bg-white shadow rounded-xl roun px-10 py-5'
