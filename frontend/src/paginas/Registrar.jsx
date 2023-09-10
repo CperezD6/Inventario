@@ -1,12 +1,27 @@
 import {Link} from 'react-router-dom'
+import {useState} from 'react'
 
 const Registrar = () => {
+  const [nombre, setNombre]= useState('')
+  const [email, setEmail]= useState('')
+  const [password, setPassword]= useState('')
+  const [repetirPassword, setRepetirPassword]= useState('')
+
+  const handleSubmit(){
+
+    
+  }
+
+
   return (
     
       <>
       <h1 className='text-blue-500 font-black text-5xl capitalize'>Crea tu cuenta</h1>
 
-      <form action="" className='my-10 bg-white shadow rounded-xl roun px-10 py-5'>
+      <form action="" 
+        className='my-10 bg-white shadow rounded-xl roun px-10 py-5'
+        onSubmit={handleSubmit}
+      >
         <div className='my-5'>
           <label 
             className='uppercase text-gray-600 block text-xl font-bold '
@@ -17,6 +32,8 @@ const Registrar = () => {
             type="Nombre"  
             placeholder='Nombre'
             className=" w-full border-2 border-sky-500 mt-3 p-2 rounded-xl bg-gray-50"
+            value={nombre}
+            onChange={e => setNombre(e.target.value)}
             />
         </div>
         <div className='my-5'>
@@ -29,6 +46,8 @@ const Registrar = () => {
             type="text"  
             placeholder='Email'
             className=" w-full border-2 border-sky-500 mt-3 p-2 rounded-xl bg-gray-50"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             />
         </div>
         <div className='my-5'>
@@ -41,6 +60,8 @@ const Registrar = () => {
             type="password"  
             placeholder='password'
             className=" w-full border-2 border-sky-500 mt-3 p-2 rounded-xl bg-gray-50"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             />
         </div>
         <div className='my-5'>
@@ -53,6 +74,8 @@ const Registrar = () => {
             type="password"  
             placeholder='Repetir Password'
             className=" w-full border-2 border-sky-500 mt-3 p-2 rounded-xl bg-gray-50"
+            value={repetirPassword}
+            onChange={e => setRepetirPassword(e.target.value)}
             />
         </div>
         <input 
