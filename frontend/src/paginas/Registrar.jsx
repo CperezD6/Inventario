@@ -18,9 +18,25 @@ const Registrar = () => {
       })
       return
     }
-
-
-
+    if(password !== repetirPassword ){
+      setAlerta({
+        msg: 'Los Password no son iguales',
+        error: false
+      })
+    }
+    if(password.length < 6 ){
+      setAlerta({
+        msg: 'La contrasena debe ser mayor a 6 caracteres',
+        error: false
+      })
+    }
+    setAlerta({})
+    //Crear al Usuario en la API
+    try {
+      
+    } catch (error) {
+      
+    }
   }
 
   const {msg} = alerta
@@ -28,12 +44,12 @@ const Registrar = () => {
   return (
     
       <>
-      <h1 className='text-blue-500 font-black text-5xl capitalize'>Crea tu cuenta</h1>
+      <h1 className='text-blue-500 font-black text-5xl capitalize text-center'>Crear cuenta</h1>
 
       {msg && <Alerta alerta={alerta}/>}
 
       <form action="" 
-        className='my-10 bg-white shadow rounded-xl roun px-10 py-5'
+        className='my-10 bg-white shadow rounded-xl roun px-10 py-1'
         onSubmit={handleSubmit}
       >
         <div className='my-5'>
@@ -101,15 +117,15 @@ const Registrar = () => {
           
       </form>
       <nav className='lg:flex lg:justify-between'>
-          <Link 
-            className='block text-center my-5 text-slate-500 uppercase text-sm' 
+          {/* <Link 
+            className='block text-center my-1 text-slate-500 uppercase text-sm' 
             to="/"
             >Ya tienes una Cuenta?</Link>
       
           <Link 
             className='block text-center my-5 text-slate-500 uppercase text-sm' 
             to="olvide-password"
-            >Olvide mi Password</Link>
+            >Olvide mi Password</Link> */}
       </nav>
     </>
     
