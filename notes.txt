@@ -1,6 +1,7 @@
 //ruta
 
 mnt/c/Users/necperez/Desktop/clases/Cod\ Juan/loginMD
+mnt/c/Users/necperez/Desktop/terminal/proyectos/inventario/inventario
 
 //Entramos a la carpeta
 cd . \backend\
